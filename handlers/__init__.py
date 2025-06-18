@@ -1,2 +1,2 @@
-from .hello import router as hello_router # noqa
-from .random import router as random_router # noqa
+from .commands import CommandsHandler as commands_handler # noqa
+from .callbacks import CallbacksHandler as callbacks_handler # noqa

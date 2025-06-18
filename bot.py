@@ -5,21 +5,23 @@ import sys
 from aiogram import Bot, Dispatcher
 
 from config import BOT_TOKEN
-from handlers import random_router, hello_router
+from handlers import commands_handler, callbacks_handler
 from tmdb_api.tmdb import init_tmdb
 
 
-async def main() -> None:
+async def mainloop():
     bot = Bot(token=BOT_TOKEN)
     dp = Dispatcher()
 
-    dp.include_router(hello_router)
-    dp.include_router(random_router)
+    dp.include_routers(
+        commands_handler(bot).router,
+        callbacks_handler(bot).router,
+
+    )
 
     await init_tmdb()
     await dp.start_polling(bot)
 
-
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO, stream=sys.stdout)
-    asyncio.run(main())
+    asyncio.run(mainloop())
