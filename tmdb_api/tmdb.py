@@ -5,6 +5,7 @@ import aiohttp
 from async_lru import alru_cache
 
 from config import TMDB_API_KEY
+
 from .constants import (
     GENRE_LIST_ENDPOINT,
     HEADERS,
@@ -12,6 +13,7 @@ from .constants import (
     MAX_ATTEMPTS,
     SEARCH_MOVIE_ENDPOINT
 )
+
 from .services import get_random_letter, get_random_year
 from .validators import is_russian_text, is_valid_release_date
 
