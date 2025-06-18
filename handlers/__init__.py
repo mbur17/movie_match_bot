@@ -1,1 +1,2 @@
-from .user import router as user_router # noqa
+from .hello import router as hello_router # noqa
+from .random import router as random_router # noqa
