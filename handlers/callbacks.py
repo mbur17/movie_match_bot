@@ -40,7 +40,8 @@ class LikeSkipStop(BaseCallbackHandler):
 
     async def handle_buttons(self, callback: CallbackQuery):
         if callback.data == 'like':
-            await callback.answer('Добавлено в избранное ✅')
+            await callback.answer('Закрепили 📍')
+            await callback.message.pin(disable_notification=True)
             await send_new_movie(callback.message)
 
         elif callback.data == 'skip':
