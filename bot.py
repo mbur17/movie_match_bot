@@ -9,7 +9,7 @@ from handlers import commands_handler, callbacks_handler
 from tmdb_api.tmdb import init_tmdb
 
 
-async def mainloop():
+async def main():
     bot = Bot(token=BOT_TOKEN)
     dp = Dispatcher()
 
@@ -24,4 +24,4 @@ async def mainloop():
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO, stream=sys.stdout)
-    asyncio.run(mainloop())
+    asyncio.run(main())
